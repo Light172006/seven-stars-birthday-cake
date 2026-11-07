@@ -110,10 +110,10 @@ function Index() {
           <div className="rounded-3xl border border-border bg-card p-8 text-center shadow-[var(--shadow-glow)]">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Greeting {step + 1} of 7</p>
             <div className="mx-auto mt-6 flex h-32 w-32 items-center justify-center rounded-full bg-[image:var(--gradient-primary)] text-6xl">
-              {MEMBERS[step].emoji}
+              {MEMBERS[step]!.emoji}
             </div>
-            <h2 className="mt-5 font-display text-4xl text-primary">{MEMBERS[step].name}</h2>
-            <p className="mt-4 text-lg leading-relaxed">“{MEMBERS[step].line}”</p>
+            <h2 className="mt-5 font-display text-4xl text-primary">{MEMBERS[step]!.name}</h2>
+            <p className="mt-4 text-lg leading-relaxed">“{MEMBERS[step]!.line}”</p>
             <p className="mt-2 text-xs text-muted-foreground">A fan-made greeting</p>
             <button onClick={() => setStep(step + 1)} className="btn mt-8">
               {step < 6 ? "Next 💜" : "Let's get the cake 🎂"}
