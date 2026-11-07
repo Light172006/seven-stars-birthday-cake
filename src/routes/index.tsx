@@ -107,9 +107,10 @@ function Index() {
 
       {step >= 0 && step < 7 && (
         <section key={step} className="pop-in w-full max-w-md">
-          <div className="rounded-3xl border border-border bg-card p-8 text-center shadow-[var(--shadow-glow)]">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Greeting {step + 1} of 7</p>
-            <div className="mx-auto mt-6 flex h-32 w-32 items-center justify-center rounded-full bg-[image:var(--gradient-primary)] text-6xl">
+          <div className="rounded-3xl border border-border bg-card p-8 backdrop-blur-xl text-center shadow-[var(--shadow-glow)]">
+            <div className="flex justify-center gap-1.5">{MEMBERS.map((_, i) => <span key={i} className={`h-1.5 rounded-full transition-all ${i <= step ? "w-6 bg-primary" : "w-1.5 bg-muted"}`} />)}</div>
+            <p className="mt-3 text-xs uppercase tracking-[0.3em] text-muted-foreground">Greeting {step + 1} of 7</p>
+            <div className="mx-auto mt-6 flex h-32 w-32 items-center justify-center float rounded-full bg-[image:var(--gradient-primary)] text-6xl ring-4 ring-primary/30 ring-offset-4 ring-offset-card">
               {MEMBERS[step]!.emoji}
             </div>
             <h2 className="mt-5 font-display text-4xl text-primary">{MEMBERS[step]!.name}</h2>
@@ -128,21 +129,20 @@ function Index() {
             {allOut ? "Yay! Wish made 🎉" : "Make a wish & blow out the candles"}
           </h2>
           <p className="mt-2 text-muted-foreground">{allOut ? "" : "Tap each flame to blow it out"}</p>
-          <div className="relative mx-auto mt-12 w-72">
-            <div className="flex justify-around px-6">
+          <div className="cake-wrap relative mx-auto mt-12 w-80">
+            <div className="relative z-10 mx-auto flex w-52 justify-around">
               {candles.map((lit, i) => (
-                <button key={i} aria-label="candle" onClick={() => setCandles(candles.map((c, j) => (j === i ? false : c)))} className="flex flex-col items-center">
-                  <span className={lit ? "flame" : "h-6 text-sm opacity-60"}>{lit ? "" : "💨"}</span>
-                  <span className="h-12 w-3 rounded-sm bg-[repeating-linear-gradient(45deg,var(--primary-foreground)_0_4px,var(--accent)_4px_8px)]" />
+                <button key={i} aria-label={lit ? "Blow out candle" : "Candle out"} onClick={() => setCandles(candles.map((c, j) => (j === i ? false : c)))} className="group flex flex-col items-center">
+                  <span className="flex h-8 items-end">{lit ? <span className="flame" /> : <span className="smoke" />}</span>
+                  <span className="candle" style={{ background: `repeating-linear-gradient(45deg, var(--frosting) 0 4px, var(--chart-${(i % 5) + 1}) 4px 8px)` }} />
                 </button>
               ))}
             </div>
-            <div className="h-6 rounded-t-xl bg-[var(--frosting)]" />
-            <div className="h-20 bg-[var(--cake)]" />
-            <div className="h-4 bg-[var(--frosting)]" />
-            <div className="h-20 rounded-b-xl bg-[var(--cake)]" />
-            <div className="mx-auto h-3 w-80 -translate-x-4 rounded-full bg-muted" />
+            <div className="tier mx-auto h-20 w-56 rounded-t-2xl"><span className="drip" /><span className="sprinkles" /></div>
+            <div className="tier tier-b mx-auto h-24 w-72 rounded-t-2xl"><span className="drip" /><span className="name-tag font-display">{FRIEND_NAME}</span></div>
+            <div className="plate mx-auto h-4 w-80 rounded-full" />
           </div>
+          <p className="mt-4 text-sm text-muted-foreground">{candles.filter(Boolean).length} candle(s) still glowing</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <button onClick={music.playing ? music.stop : music.play} className="btn-outline">
               {music.playing ? "⏸ Stop music" : "🎵 Play birthday song"}
@@ -155,7 +155,7 @@ function Index() {
       {step === 8 && (
         <section className="fade-up w-full max-w-xl">
           <Confetti />
-          <div className="rounded-3xl border border-border bg-card p-8 text-center shadow-[var(--shadow-glow)] md:p-12">
+          <div className="rounded-3xl border border-border bg-card p-8 backdrop-blur-xl text-center shadow-[var(--shadow-glow)] md:p-12">
             <p className="text-5xl">💌</p>
             <h2 className="mt-4 font-display text-4xl text-primary md:text-5xl">Happy Birthday, {FRIEND_NAME}!</h2>
             <p className="mt-6 whitespace-pre-line text-lg leading-relaxed">{CUSTOM_WISH}</p>

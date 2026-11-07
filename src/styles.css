@@ -184,3 +184,20 @@
 @keyframes flicker { to { transform: scaleY(1.15) rotate(3deg); } }
 .confetti { position: absolute; top: -20px; width: 10px; height: 16px; border-radius: 2px; animation: fall 3.5s linear infinite; }
 @keyframes fall { to { transform: translateY(110vh) rotate(720deg); } }
+.candle { display:block; width:12px; height:52px; border-radius:4px 4px 2px 2px; box-shadow: inset -3px 0 0 oklch(0 0 0 / .15); }
+.smoke { width:6px; height:22px; border-radius:50%; background: oklch(0.9 0.01 300 / .5); filter: blur(3px); animation: smoke 1.5s ease-out forwards; }
+@keyframes smoke { to { transform: translateY(-24px) scale(2); opacity: 0; } }
+.flame { cursor:pointer; }
+.tier { position:relative; background: linear-gradient(180deg, var(--cake), oklch(0.6 0.13 340)); box-shadow: inset 0 -8px 0 oklch(0 0 0 / .12); }
+.tier-b { background: linear-gradient(180deg, oklch(0.6 0.15 305), oklch(0.48 0.15 300)); }
+.drip { position:absolute; inset:0 0 auto 0; height:26px; border-radius:16px 16px 0 0; background: var(--frosting);
+  -webkit-mask: radial-gradient(10px 14px at 50% 100%, #000 98%, transparent) 0 0/28px 100% repeat-x, linear-gradient(#000 0 0) top/100% 12px no-repeat;
+  mask: radial-gradient(10px 14px at 50% 100%, #000 98%, transparent) 0 0/28px 100% repeat-x, linear-gradient(#000 0 0) top/100% 12px no-repeat; }
+.sprinkles { position:absolute; inset:34px 14px 10px; background-image:
+  radial-gradient(circle, var(--chart-2) 2px, transparent 2.5px), radial-gradient(circle, var(--chart-4) 2px, transparent 2.5px), radial-gradient(circle, var(--frosting) 1.5px, transparent 2px);
+  background-size: 22px 18px, 30px 22px, 16px 14px; background-position: 0 0, 9px 7px, 4px 11px; }
+.name-tag { position:absolute; left:0; right:0; bottom:18px; text-align:center; font-size:1.6rem; color: var(--frosting); text-shadow: 0 2px 0 oklch(0 0 0 / .2); }
+.plate { background: linear-gradient(180deg, var(--frosting), oklch(0.75 0.03 310)); box-shadow: 0 12px 30px -6px oklch(0.7 0.2 320 / .6); }
+.cake-wrap { filter: drop-shadow(0 20px 40px oklch(0.6 0.2 320 / .35)); animation: fadeUp 1s ease both; }
+.float { animation: float 3s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-8px); } }
