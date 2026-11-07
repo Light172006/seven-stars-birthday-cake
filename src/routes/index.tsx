@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
 });
 
 // ✏️ Personalize here
-const FRIEND_NAME = "Sayanity";
+const FRIEND_NAME = "Sayanita";
 const FROM_NAME = "Debjit";
 const CUSTOM_WISH =
   "Happy birthday to the most wonderful person I know! Thank you for every laugh, every late-night talk and every moment you made brighter. May this year bring you endless joy, big dreams coming true, and all the love you give to others. Borahae! 💜";
