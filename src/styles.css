@@ -142,3 +142,45 @@
     color: var(--color-foreground);
   }
 }
+
+:root {
+  --background: oklch(0.2 0.07 300);
+  --foreground: oklch(0.97 0.02 310);
+  --card: oklch(0.27 0.09 300 / 0.85);
+  --card-foreground: oklch(0.97 0.02 310);
+  --primary: oklch(0.82 0.13 320);
+  --primary-foreground: oklch(0.2 0.07 300);
+  --accent: oklch(0.7 0.18 350);
+  --muted: oklch(0.32 0.07 300);
+  --muted-foreground: oklch(0.78 0.06 310);
+  --border: oklch(0.45 0.1 305);
+  --chart-1: oklch(0.82 0.13 320);
+  --chart-2: oklch(0.85 0.15 85);
+  --chart-3: oklch(0.7 0.18 350);
+  --chart-4: oklch(0.75 0.12 250);
+  --chart-5: oklch(0.95 0.03 310);
+  --cake: oklch(0.72 0.12 340);
+  --frosting: oklch(0.95 0.04 330);
+  --gradient-primary: linear-gradient(135deg, oklch(0.55 0.2 300), oklch(0.75 0.17 345));
+  --shadow-glow: 0 20px 60px -15px oklch(0.7 0.2 320 / 0.5);
+}
+@theme inline {
+  --font-display: "Pacifico", cursive;
+  --font-body: "Quicksand", sans-serif;
+}
+@utility btn { @apply rounded-full bg-primary px-7 py-3 font-semibold text-primary-foreground transition hover:scale-105; }
+@utility btn-outline { @apply rounded-full border border-primary px-6 py-3 font-semibold text-primary transition hover:bg-muted; }
+.sparkles { position: fixed; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, oklch(1 0 0 / .5) 1px, transparent 1.5px);
+  background-size: 48px 48px; opacity: .35; animation: twinkle 4s ease-in-out infinite alternate; }
+@keyframes twinkle { to { opacity: .1; } }
+.fade-up { animation: fadeUp .8s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } }
+.pop-in { animation: popIn .6s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes popIn { from { opacity: 0; transform: scale(.7) rotate(-4deg); } }
+.flame { width: 14px; height: 24px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 50% 70%, oklch(0.98 0.1 95), oklch(0.8 0.18 60) 60%, transparent 70%);
+  box-shadow: 0 0 18px oklch(0.85 0.17 80); animation: flicker .3s infinite alternate; }
+@keyframes flicker { to { transform: scaleY(1.15) rotate(3deg); } }
+.confetti { position: absolute; top: -20px; width: 10px; height: 16px; border-radius: 2px; animation: fall 3.5s linear infinite; }
+@keyframes fall { to { transform: translateY(110vh) rotate(720deg); } }
