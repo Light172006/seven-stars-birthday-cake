@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
 });
 
 // ✏️ Personalize here
-const FRIEND_NAME = "Bestie";
+const FRIEND_NAME = "Sayanity";
 const FROM_NAME = "Debjit";
 const CUSTOM_WISH =
   "Happy birthday to the most wonderful person I know! Thank you for every laugh, every late-night talk and every moment you made brighter. May this year bring you endless joy, big dreams coming true, and all the love you give to others. Borahae! 💜";
@@ -114,7 +114,6 @@ function Index() {
             </div>
             <h2 className="mt-5 font-display text-4xl text-primary">{MEMBERS[step]!.name}</h2>
             <p className="mt-4 text-lg leading-relaxed">“{MEMBERS[step]!.line}”</p>
-            <p className="mt-2 text-xs text-muted-foreground">A fan-made greeting</p>
             <button onClick={() => setStep(step + 1)} className="btn mt-8">
               {step < 6 ? "Next 💜" : "Let's get the cake 🎂"}
             </button>
